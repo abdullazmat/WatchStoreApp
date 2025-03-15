@@ -5,6 +5,7 @@ import {colors} from './constants/colors';
 import {fontFamily} from './constants/font';
 import {TextInput} from 'react-native-gesture-handler';
 import Category from './components/Category';
+import ProductCard from './components/ProductCard';
 
 const HomeScreen = () => {
   return (
@@ -28,13 +29,13 @@ const HomeScreen = () => {
         </View>
       </View>
       <Category />
+      <ProductCard />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: spacing.xl,
     marginVertical: spacing.xxl,
     backgroundColor: colors.background,
