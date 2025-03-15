@@ -4,20 +4,18 @@ import {colors} from '../constants/colors';
 import {fontSize, spacing} from '../constants/dimensons';
 import {fontFamily} from '../constants/font';
 
-const ProductCard = () => {
-  const imageUrl =
-    'https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1725994442/Croma%20Assets/Communication/Wearable%20Devices/Images/309428_0_jhv5to.png';
+const ProductCard = ({item}) => {
   return (
     <TouchableOpacity style={styles.container}>
       <View style={styles.ImageWrapper}>
-        <Image source={{uri: imageUrl}} style={styles.productImage} />
+        <Image source={{uri: item.image}} style={styles.productImage} />
       </View>
       <View style={styles.contentContainer}>
         <Text numberOfLines={1} style={styles.name}>
-          Apple Watch Series 10
+          {item.name}
         </Text>
-        <Text style={styles.brand}>Apple </Text>
-        <Text style={styles.price}>$100 </Text>
+        <Text style={styles.brand}>{item.brand} </Text>
+        <Text style={styles.price}>${item.price} </Text>
       </View>
     </TouchableOpacity>
   );

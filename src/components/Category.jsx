@@ -6,28 +6,28 @@ import {colors} from '../constants/colors';
 import {FlatList} from 'react-native-gesture-handler';
 import {categories} from '../data/categories';
 
-const Category = () => {
-  const [selectedCategory, setSelectedCategory] = useState(1);
+const Category = ({selectedCategory, handleUpdateCategory}) => {
   return (
     <FlatList
       data={categories}
       renderItem={({item, index}) => (
-        <TouchableOpacity onPress={() => setSelectedCategory(item.id)}>
+        <TouchableOpacity onPress={() => handleUpdateCategory(item.name)}>
           <Text
-            style={
-              (styles.categoryText,
-              selectedCategory === item.id && {color: colors.purple})
-            }>
+            style={[
+              styles.categoryText,
+              selectedCategory === item.name && {color: colors.purple},
+            ]}>
             {item.name}
           </Text>
           <View
-            style={selectedCategory === item.id ? styles.underline : null}
+            style={selectedCategory === item.name ? styles.underline : null}
           />
         </TouchableOpacity>
       )}
       keyExtractor={item => item.id}
       horizontal
       ItemSeparatorComponent={<View style={{paddingHorizontal: spacing.sm}} />}
+      showsHorizontalScrollIndicator={false}
     />
   );
 };
