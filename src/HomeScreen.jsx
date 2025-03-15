@@ -4,6 +4,7 @@ import {fontSize, iconSize, spacing} from './constants/dimensons';
 import {colors} from './constants/colors';
 import {fontFamily} from './constants/font';
 import {TextInput} from 'react-native-gesture-handler';
+import Category from './components/Category';
 
 const HomeScreen = () => {
   return (
@@ -26,6 +27,7 @@ const HomeScreen = () => {
           />
         </View>
       </View>
+      <Category />
     </View>
   );
 };
