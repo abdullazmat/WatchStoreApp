@@ -12,14 +12,13 @@ const ProductDetailScreen = () => {
   return (
     <View style={styles.container}>
       <Header />
-      <ProductCaraousel />
+      <ProductCaraousel images={item.images} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: spacing.xl,
     marginVertical: spacing.xxl,
     backgroundColor: colors.background,
