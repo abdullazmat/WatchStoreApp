@@ -3,10 +3,17 @@ import {Text, StyleSheet, View, TouchableOpacity, Image} from 'react-native';
 import {colors} from '../constants/colors';
 import {fontSize, spacing} from '../constants/dimensons';
 import {fontFamily} from '../constants/font';
+import {useNavigation} from '@react-navigation/native';
 
 const ProductCard = ({item}) => {
+  const navigation = useNavigation();
+  const handleProductDetailScreen = () => {
+    navigation.navigate('Product Details', {item});
+  };
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={handleProductDetailScreen}>
       <View style={styles.ImageWrapper}>
         <Image source={{uri: item.image}} style={styles.productImage} />
       </View>
