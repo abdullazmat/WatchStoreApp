@@ -11,31 +11,33 @@ const ProductCaraousel = ({images}) => {
     if (viewableItems.length > 0) {
       setActiveSlide(viewableItems[0].index);
     }
-  });
+  }).current;
+
+  const viewConfigRef = useRef({viewAreaCoveragePercentThreshold: 50}).current;
 
   return (
     <>
       <FlatList
         data={images}
-        renderItem={({item}) => {
-          return (
-            <View style={styles.productImageWrapper}>
-              <Image source={{uri: item}} style={styles.productImage} />
-            </View>
-          );
-        }}
-        onViewableItemsChanged={onViewRef.current}
+        renderItem={({item}) => (
+          <View style={styles.productImageWrapper}>
+            <Image source={{uri: item}} style={styles.productImage} />
+          </View>
+        )}
+        onViewableItemsChanged={onViewRef}
+        viewabilityConfig={viewConfigRef}
         showsHorizontalScrollIndicator={false}
         horizontal
-        pagingEnabled={true}
+        pagingEnabled
         snapToAlignment="center"
         snapToInterval={screenWidth}
-        decelerationRate={'fast'}
-        keyExtractor={(item, index) => index}
+        decelerationRate="fast"
+        keyExtractor={(item, index) => index.toString()}
       />
       <View style={styles.pagination}>
-        {images.map((item, index) => (
+        {images.map((_, index) => (
           <View
+            key={index}
             style={[
               styles.dot,
               index === activeSlide && {
