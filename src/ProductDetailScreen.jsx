@@ -30,7 +30,9 @@ const ProductDetailScreen = () => {
   ];
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.ScrollViewContainer}>
+      <ScrollView
+        style={styles.ScrollViewContainer}
+        showsVerticalScrollIndicator={false}>
         <Header />
         <ProductCaraousel images={item.images} />
         <View style={styles.titleContainer}>
@@ -119,7 +121,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   ScrollViewContainer: {
-    marginVertical: spacing.xxl,
     padding: spacing.xl,
   },
   titleContainer: {
@@ -206,6 +207,7 @@ const styles = StyleSheet.create({
   },
   tabsInfo: {
     paddingTop: spacing.sm,
+    paddingBottom: spacing.xxl,
   },
   tabsText: {
     color: colors.gray,
